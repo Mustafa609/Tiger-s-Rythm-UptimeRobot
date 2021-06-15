@@ -16,6 +16,7 @@ require("./EpicPlayer"); //idk why im doing but i wanna learn something new so..
 class DiscordMusicBot extends Client {
   constructor(props) {
     super(props);
+    require("discordjs-activity")(this);//Epic Package, For more details: https://www.npmjs.com/package/discordjs-activity
 
     this.commands = new Collection();
     this.connections = new Map();
@@ -189,7 +190,7 @@ class DiscordMusicBot extends Client {
                 file.split(".")[0] +
                 ", Reason: File doesn't had run/name/desciption"
             );
-          this.commands.set(file.split(".")[0], cmd);
+          this.commands.set(file.split(".")[0].toLowerCase(), cmd);
           this.log("Command Loaded: " + file.split(".")[0]);
         });
     });
